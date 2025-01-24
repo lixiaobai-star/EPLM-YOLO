@@ -45,33 +45,49 @@ Install other dependencies listed in the `requirements.txt` file:
 pip install -r requirements.txt
 ```
 
-## Training and Testing the Model
+[//]: # (## Training and Testing the Model)
 
-### 1. Data Preparation
+[//]: # ()
+[//]: # (### 1. Data Preparation)
 
-Download and extract the target detection datasets (e.g., DOTA, Pascal VOC2012, or TZ-Plane) to the specified directory.
+[//]: # ()
+[//]: # (Download and extract the target detection datasets &#40;e.g., DOTA, Pascal VOC2012, or TZ-Plane&#41; to the specified directory.)
 
-### 2. Train the Model
+[//]: # ()
+[//]: # (### 2. Train the Model)
 
-Run the following command to start training:
+[//]: # ()
+[//]: # (Run the following command to start training:)
 
-```bash
-python train.py --data ./data/dataset.yaml --cfg ./models/yolo_model.yaml --weights ./weights/pretrained.pt --epochs 100
-```
+[//]: # ()
+[//]: # (```bash)
 
-**Parameters:**
-- `--data`: Path to the dataset configuration file.
-- `--cfg`: Path to the YOLO model configuration file.
-- `--weights`: Path to the pretrained weights (optional).
-- `--epochs`: Number of training epochs.
+[//]: # (python train.py --data ./data/dataset.yaml --cfg ./models/yolo_model.yaml --weights ./weights/pretrained.pt --epochs 100)
 
-### 3. Test the Model
+[//]: # (```)
 
-Run the following command to test the model:
+[//]: # ()
+[//]: # (**Parameters:**)
 
-```bash
-python test.py --data ./data/dataset.yaml --weights ./weights/trained_model.pt
-```
+[//]: # (- `--data`: Path to the dataset configuration file.)
+
+[//]: # (- `--cfg`: Path to the YOLO model configuration file.)
+
+[//]: # (- `--weights`: Path to the pretrained weights &#40;optional&#41;.)
+
+[//]: # (- `--epochs`: Number of training epochs.)
+
+[//]: # ()
+[//]: # (### 3. Test the Model)
+
+[//]: # ()
+[//]: # (Run the following command to test the model:)
+
+[//]: # (```bash)
+
+[//]: # (python test.py --data ./data/dataset.yaml --weights ./weights/trained_model.pt)
+
+[//]: # (```)
 
 ## Integrating the Lightweight Strategy
 
