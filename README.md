@@ -18,11 +18,14 @@ Our lightweight strategy consists of three modules:
 
 To validate the effectiveness of this strategy, we applied it to various YOLO models, including YOLOv5, YOLOv6, YOLOv8, YOLOv10, YOLO-lite, SPDConv, YOLO-Drone, Hyper-YOLO, RCS-YOLO, and ASF-YOLO. Experiments conducted on the DOTA, Pascal VOC2012, and TZ-Plane datasets demonstrate that our proposed lightweight strategy significantly reduces computational complexity while maintaining detection performance.
 
-## Features
+[//]: # (## Features)
 
-- **Lightweight Design:** Easily integrates into existing YOLO models without requiring architectural redesign.
-- **High Adaptability:** Compatible with various YOLO models and diverse object detection scenarios.
-- **High Performance:** Reduces computational complexity while preserving detection accuracy.
+[//]: # ()
+[//]: # (- **Lightweight Design:** Easily integrates into existing YOLO models without requiring architectural redesign.)
+
+[//]: # (- **High Adaptability:** Compatible with various YOLO models and diverse object detection scenarios.)
+
+[//]: # (- **High Performance:** Reduces computational complexity while preserving detection accuracy.)
 
 ## Supported Datasets
 

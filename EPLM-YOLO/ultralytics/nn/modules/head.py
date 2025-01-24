@@ -34,8 +34,8 @@ class Detect_MSCH(nn.Module):
         self.stride = torch.zeros(self.nl)
         self.conv = nn.ModuleList(nn.Sequential(Conv(x, hidc, 1)) for x in ch)
         self.share_conv = nn.Sequential(Conv(hidc, hidc, 3), Conv(hidc, hidc, 3))
-        self.cv2 = nn.Conv2d(hidc, 4 * self.reg_max, 1)
-        self.cv3 = nn.Conv2d(hidc, self.nc, 1)
+        self.share_conv2 = nn.Conv2d(hidc, 4 * self.reg_max, 1)
+        self.share_conv3 = nn.Conv2d(hidc, self.nc, 1)
         self.dfl = DFL(self.reg_max) if self.reg_max > 1 else nn.Identity()
 
     def forward(self, x):
@@ -43,7 +43,7 @@ class Detect_MSCH(nn.Module):
         for i in range(self.nl):
             x[i] = self.conv[i](x[i])
             x[i] = self.share_conv(x[i])
-            x[i] = torch.cat((self.cv2(x[i]), self.cv3(x[i])), 1)
+            x[i] = torch.cat((self.share_conv2(x[i]), self.share_conv3(x[i])), 1)
         if self.training:  # Training path
             return x
 
@@ -79,8 +79,8 @@ class Detect_MSCH(nn.Module):
         # cf = torch.bincount(torch.tensor(np.concatenate(dataset.labels, 0)[:, 0]).long(), minlength=nc) + 1
         # ncf = math.log(0.6 / (m.nc - 0.999999)) if cf is None else torch.log(cf / cf.sum())  # nominal class frequency
         # for a, b, s in zip(m.cv2, m.cv3, m.stride):  # from
-        m.cv2.bias.data[:] = 1.0  # box
-        m.cv3.bias.data[: m.nc] = math.log(5 / m.nc / (640 / 16) ** 2)  # cls (.01 objects, 80 classes, 640 img)
+        m.share_conv2.bias.data[:] = 1.0  # box
+        m.share_conv3.bias.data[: m.nc] = math.log(5 / m.nc / (640 / 16) ** 2)  # cls (.01 objects, 80 classes, 640 img)
 
     def decode_bboxes(self, bboxes):
         """Decode bounding boxes."""
