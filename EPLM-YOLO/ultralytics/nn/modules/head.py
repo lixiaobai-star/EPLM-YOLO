@@ -26,13 +26,12 @@ class Detect_MSCH(nn.Module):
     strides = torch.empty(0)  # init
 
     def __init__(self, nc=80, hidc=256, ch=()):
-        """Initializes the YOLOv8 detection layer with specified number of classes and channels."""
         super().__init__()
-        self.nc = nc  # number of classes
-        self.nl = len(ch)  # number of detection layers
-        self.reg_max = 16  # DFL channels (ch[0] // 16 to scale 4/8/12/16/20 for n/s/m/l/x)
-        self.no = nc + self.reg_max * 4  # number of outputs per anchor
-        self.stride = torch.zeros(self.nl)  # strides computed during build
+        self.nc = nc
+        self.nl = len(ch)
+        self.reg_max = 16
+        self.no = nc + self.reg_max * 4
+        self.stride = torch.zeros(self.nl)
         self.conv = nn.ModuleList(nn.Sequential(Conv(x, hidc, 1)) for x in ch)
         self.share_conv = nn.Sequential(Conv(hidc, hidc, 3), Conv(hidc, hidc, 3))
         self.cv2 = nn.Conv2d(hidc, 4 * self.reg_max, 1)
