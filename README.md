@@ -1,5 +1,6 @@
 
-# EPLM-YOLO: An Efficient Lightweight Strategy Based on the YOLO Architecture
+# EPLM-YOLO: Effective plug-and-play lightweight modules for YOLO series models
+
 
 ## Introduction
 
