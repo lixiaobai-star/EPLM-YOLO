@@ -105,7 +105,7 @@ Refer to the `models/` directory and code annotations for detailed instructions.
 
 ## Experimental Results
 
-We conducted comparative experiments on different datasets and models. For detailed experimental results, please refer to our paper.
+We conducted comparative experiments on different datasets and models. For detailed experimental results, please refer to our paper: Dang, L., Li, Z., Li, S. et al. Effective plug-and-play lightweight modules for YOLO series models. J Supercomput 81, 493 (2025). https://doi.org/10.1007/s11227-025-07026-y
 
 ## License
 
